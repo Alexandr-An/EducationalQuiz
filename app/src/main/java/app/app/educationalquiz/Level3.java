@@ -1,4 +1,4 @@
-package app.app.educationalquiz;
+ package app.app.educationalquiz;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -13,13 +13,14 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Random;
 
-public class Level2 extends AppCompatActivity {
+public class Level3 extends AppCompatActivity {
 
     Dialog dialog;
     Dialog dialogEnd;
@@ -64,11 +65,16 @@ public class Level2 extends AppCompatActivity {
         dialog.setCancelable(false);//окно нельзя закрытть кнопкой назад
         //устанавливаем картинку в диалоговое окно начало
         ImageView previewimg = (ImageView)dialog.findViewById(R.id.previewimg);
-        previewimg.setImageResource(R.drawable.previewdialog2);
+        previewimg.setImageResource(R.drawable.previewimg3);
         //устанавливаем картинку в диалоговое окно конец
+        //устанавливаем фон диалогового окна начло
+        LinearLayout dialogfon= (LinearLayout)dialog.findViewById(R.id.dialog_fon);
+        dialogfon.setBackgroundResource(R.drawable.previewbackground3);
+        //устанавливаем фон диалогового окна конец
+
         //установка описаниязадания начало
         TextView textdescription = (TextView)dialog.findViewById(R.id.textdescription);
-        textdescription.setText(R.string.level2);
+        textdescription.setText(R.string.level3);
         //установка описаниязадания конец
 
         //кнопка закрытия диалогового окна начало
@@ -79,7 +85,7 @@ public class Level2 extends AppCompatActivity {
                 //обработка нажатия кнопки начало
                 try {
                     //вернуться назад к выбору уровня начало
-                    Intent intent = new Intent(Level2.this, GameLevels.class);//намерение для перехода
+                    Intent intent = new Intent(Level3.this, GameLevels.class);//намерение для перехода
                     startActivity(intent);//старт намерения
                     finish();//закрыть класс
                     //вернуться назад к выбору уровня конец
@@ -127,7 +133,7 @@ textdescriptionEnd.setText(R.string.level2end);
                 //обработка нажатия кнопки начало
                 try {
                     //вернуться назад к выбору уровня начало
-                    Intent intent = new Intent(Level2.this, GameLevels.class);//намерение для перехода
+                    Intent intent = new Intent(Level3.this, GameLevels.class);//намерение для перехода
                     startActivity(intent);//старт намерения
                     finish();//закрыть класс
                     //вернуться назад к выбору уровня конец
@@ -145,7 +151,7 @@ textdescriptionEnd.setText(R.string.level2end);
             @Override
             public void onClick(View v) {
                 try {
-                    Intent intent = new Intent(Level2.this, Level3.class);
+                    Intent intent = new Intent(Level3.this, Level3.class);
                     startActivity(intent);finish();
                 }catch (Exception e){}
                 dialogEnd.dismiss();// закрываем диалоговое окно/
@@ -165,7 +171,7 @@ textdescriptionEnd.setText(R.string.level2end);
                 //обработка кнопки назад начало
                 try {
                     //вернуться назад к выбору уровня начало
-                    Intent intent = new Intent(Level2.this, GameLevels.class);
+                    Intent intent = new Intent(Level3.this, GameLevels.class);
                     startActivity(intent);
                     finish();
                     //вернуться назад к выбору уровня конец
@@ -187,7 +193,7 @@ textdescriptionEnd.setText(R.string.level2end);
 
 
         //полключаем анис=мацию начало
-        final Animation a = AnimationUtils.loadAnimation(Level2.this, R.anim.alpha);
+        final Animation a = AnimationUtils.loadAnimation(Level3.this, R.anim.alpha);
 
         //полключаем анис=мацию конец
 
@@ -364,7 +370,7 @@ if (count > 0){
         //обработка кнопки назад начало
         try {
             //вернуться назад к выбору уровня начало
-            Intent intent = new Intent(Level2.this, GameLevels.class);
+            Intent intent = new Intent(Level3.this, GameLevels.class);
             startActivity(intent);finish();
             //вернуться назад к выбору уровня конец
         }catch (Exception e){}

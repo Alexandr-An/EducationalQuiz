@@ -31,4 +31,36 @@ public class Array {
             R.string.lvltext9,
     };
     //Массив для первого уровня конец
+
+ // массив для второго уровня конец
+    final int[] images2 = {
+            R.drawable.one_level2,
+            R.drawable.two_level2,
+            R.drawable.three_level2,
+            R.drawable.four_level2,
+            R.drawable.five_level2,
+            R.drawable.six_level2,
+            R.drawable.seven_level2,
+            R.drawable.eight_level2,
+            R.drawable.nine_level2,
+            R.drawable.ten_level2,
+
+    };
+
+    /*   final int[] power1 = {0,1,2,3,4,5,6,7,8,9,};*/
+
+    final int[] text2 = {
+
+            R.string.lvl2text1,
+            R.string.lvl2text2,
+            R.string.lvl2text3,
+            R.string.lvl2text4,
+            R.string.lvl2text5,
+            R.string.lvl2text6,
+            R.string.lvl2text7,
+            R.string.lvl2text8,
+            R.string.lvl2text9,
+            R.string.lvl2text10,
+    };
+    //Массив для второгог уровня конец
 }
