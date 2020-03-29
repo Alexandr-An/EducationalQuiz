@@ -74,5 +74,36 @@ public class Level1 extends AppCompatActivity {
         //кнопка продожить конец
 
         dialog.show();//показать диалоговое окно
+
+        //кнопка НАЗАД начало
+        Button btn_back = (Button)findViewById(R.id.button_back);
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //обработка кнопки назад начало
+                try {
+                    //вернуться назад к выбору уровня начало
+                    Intent intent = new Intent(Level1.this, GameLevels.class);
+                    startActivity(intent);finish();
+                    //вернуться назад к выбору уровня конец
+                }catch (Exception e){}
+                //обработка кнопки назад конец
+            }
+        });
+        //кнопка НАЗАД конец
     }
+
+    //Системная кнопка назад начало
+    @Override
+    public void onBackPressed(){
+        //обработка кнопки назад начало
+        try {
+            //вернуться назад к выбору уровня начало
+            Intent intent = new Intent(Level1.this, GameLevels.class);
+            startActivity(intent);finish();
+            //вернуться назад к выбору уровня конец
+        }catch (Exception e){}
+        //обработка кнопки назад конец
+    }
+    //Системная кнопка назад Конец
 }
