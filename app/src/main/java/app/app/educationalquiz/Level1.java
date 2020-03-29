@@ -7,29 +7,47 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.Random;
 import java.util.concurrent.ExecutionException;
 
 public class Level1 extends AppCompatActivity {
 
     Dialog dialog;
+    public int numLeft;// переменная для левой картинки + текст
+    public int numRight;// переменная для правой картинки + текст
+    Array array = new Array();
+    Random random = new Random();
+    public int count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.universal);
 
-        final ImageView img_Left = (ImageView)findViewById(R.id.img_left);
+        //создать переменную textlevels
+        TextView text_levels = findViewById(R.id.textLevels);
+        text_levels.setText(R.string.level_1);
+
+        final ImageView img_Left = (ImageView) findViewById(R.id.img_left);
         img_Left.setClipToOutline(true);//скругление углов у левой картинки
 
-        final ImageView img_right = (ImageView)findViewById(R.id.img_right);
+        final ImageView img_right = (ImageView) findViewById(R.id.img_right);
         img_right.setClipToOutline(true);// скругление углов у правой картинки
+
+        //путь к левой textView
+        final TextView text_left = findViewById(R.id.text_left);
+        //путь к правой textView
+        final TextView text_right = findViewById(R.id.text_right);
 
         //развернуть игру на весь экран начало
         Window w = getWindow();
@@ -44,7 +62,7 @@ public class Level1 extends AppCompatActivity {
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));//прозрачныйыы фон диалогового окна
         dialog.setCancelable(false);//окно нельзя закрытть кнопкой назад
         //кнопка закрытия диалогового окна начало
-        TextView btnclose = (TextView)dialog.findViewById(R.id.button_close);
+        TextView btnclose = (TextView) dialog.findViewById(R.id.button_close);
         btnclose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,7 +73,8 @@ public class Level1 extends AppCompatActivity {
                     startActivity(intent);//старт намерения
                     finish();//закрыть класс
                     //вернуться назад к выбору уровня конец
-                }catch (Exception e){}
+                } catch (Exception e) {
+                }
                 dialog.dismiss();//закрываем диалоговое окно
                 //обработка нажатия кнопки конец
             }
@@ -63,7 +82,7 @@ public class Level1 extends AppCompatActivity {
         //кнопка закрытия диалогового окна конец
 
         //кнопка продожить начло
-        Button btncontinue = (Button)dialog.findViewById(R.id.buttoncontinue);
+        Button btncontinue = (Button) dialog.findViewById(R.id.buttoncontinue);
         btncontinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,7 +95,7 @@ public class Level1 extends AppCompatActivity {
         dialog.show();//показать диалоговое окно
 
         //кнопка НАЗАД начало
-        Button btn_back = (Button)findViewById(R.id.button_back);
+        Button btn_back = (Button) findViewById(R.id.button_back);
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,15 +103,196 @@ public class Level1 extends AppCompatActivity {
                 try {
                     //вернуться назад к выбору уровня начало
                     Intent intent = new Intent(Level1.this, GameLevels.class);
-                    startActivity(intent);finish();
+                    startActivity(intent);
+                    finish();
                     //вернуться назад к выбору уровня конец
-                }catch (Exception e){}
+                } catch (Exception e) {
+                }
                 //обработка кнопки назад конец
             }
         });
         //кнопка НАЗАД конец
-    }
 
+       //массив для прогресса игры начало
+        final int[] progress = {R.id.point1,R.id.point2,R.id.point3,R.id.point4,R.id.point5,
+                R.id.point6,R.id.point7,R.id.point8,R.id.point9,R.id.point10,R.id.point11,
+                R.id.point12,R.id.point13,R.id.point14,R.id.point15,R.id.point16,R.id.point17,
+                R.id.point18,R.id.point19,R.id.point20, };
+       //массив для прогресса игры конец
+
+
+
+
+        //полключаем анис=мацию начало
+        final Animation a = AnimationUtils.loadAnimation(Level1.this, R.anim.alpha);
+
+        //полключаем анис=мацию конец
+
+
+        numLeft= random.nextInt(10);//генерация числоа от0 - 9
+         img_Left.setImageResource(array.images1[numLeft]);
+         text_left.setText(array.text1[numLeft]);
+
+         numRight = random.nextInt(10);
+         //цикл с предусловие начло
+         while (numLeft == numRight){ numRight = random.nextInt(10);}
+         //цикл с предусловием конец
+          img_right.setImageResource(array.images1[numRight]);
+         text_right.setText(array.text1[numRight]);
+
+
+         // обработка нажатия на левую картинку начало
+        img_Left.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                // условие касания картинки начало
+                if(event.getAction()==MotionEvent.ACTION_DOWN){
+                 //если конулся картинки начало
+                    img_right.setEnabled(false);//блокировка правой картинки
+                    if (numLeft > numRight){
+                        img_Left.setImageResource(R.drawable.img_true);
+                    }else{img_Left.setImageResource(R.drawable.img_false);}
+                    //если коснулся картинки конец
+                }else if (event.getAction() == MotionEvent.ACTION_UP){
+                    // если отпустил палец начало
+if (numLeft >numRight){
+    if(count < 20){count++;}
+    //закрашиваем прогресс серым цветом начало
+    for (int i = 0; i < 20; i++) {
+        TextView tv = findViewById(progress[i]);
+        tv.setBackgroundResource((R.drawable.style_points));
+    }
+    //закрашиваем прогресс серым цветом когнец
+    //определяю правильные ответы и закрашиваю зеоеным
+    for (int i = 0; i < count ; i++) {
+        TextView tv = findViewById(progress[i]);
+        tv.setBackgroundResource(R.drawable.style_points_green);
+    }
+}else {
+if (count > 0){
+    if(count == 1){
+        count = 0;
+    }
+    else {
+        count = count -2;
+    }
+}
+    for (int i = 0; i < 19; i++) {
+        TextView tv = findViewById(progress[i]);
+        tv.setBackgroundResource((R.drawable.style_points));
+    }
+    //закрашиваем прогресс серым цветом когнец
+    //определяю правильные ответы и закрашиваю зеоеным
+    for (int i = 0; i < count ; i++) {
+        TextView tv = findViewById(progress[i]);
+        tv.setBackgroundResource(R.drawable.style_points_green);
+    }
+}
+//если отпустил палец конец
+
+                    if(count == 20){
+                        //ВЫХОД ИЗ УРОВНЯ
+                    }else{
+
+                        numLeft= random.nextInt(10);//генерация числоа от0 - 9
+                        img_Left.setImageResource(array.images1[numLeft]);
+                        img_Left.startAnimation(a);
+                        text_left.setText(array.text1[numLeft]);
+                        numRight = random.nextInt(10);
+                        //цикл с предусловие начло
+                        while (numLeft == numRight){ numRight = random.nextInt(10);}
+                        //цикл с предусловием конец
+                        img_right.setImageResource(array.images1[numRight]);
+                        img_right.startAnimation(a);
+                        text_right.setText(array.text1[numRight]);
+                        img_right.setEnabled(true);//вкл обраьно правую картинку
+                    }
+                }
+
+                // условие касания картинки конец
+
+                return true;
+            }
+        });
+         // обработка нажатия на левую картинку конец
+
+
+
+        // обработка нажатия на правую картинку начало
+        img_right.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                // условие касания картинки начало
+                if(event.getAction()==MotionEvent.ACTION_DOWN){
+                    //если конулся картинки начало
+                    img_Left.setEnabled(false);//блокировка левой картинки
+                    if (numLeft < numRight){
+                        img_right.setImageResource(R.drawable.img_true);
+                    }else{img_right.setImageResource(R.drawable.img_false);}
+                    //если коснулся картинки конец
+                }else if (event.getAction() == MotionEvent.ACTION_UP){
+                    // если отпустил палец начало
+                    if (numLeft < numRight){
+                        if(count < 20){count++;}
+                        //закрашиваем прогресс серым цветом начало
+                        for (int i = 0; i < 20; i++) {
+                            TextView tv = findViewById(progress[i]);
+                            tv.setBackgroundResource((R.drawable.style_points));
+                        }
+                        //закрашиваем прогресс серым цветом когнец
+                        //определяю правильные ответы и закрашиваю зеоеным
+                        for (int i = 0; i < count ; i++) {
+                            TextView tv = findViewById(progress[i]);
+                            tv.setBackgroundResource(R.drawable.style_points_green);
+                        }
+                    }else {
+                        if (count > 0){
+                            if(count == 1){
+                                count = 0;
+                            }
+                            else {
+                                count = count -2;
+                            }
+                        }
+                        for (int i = 0; i < 19; i++) {
+                            TextView tv = findViewById(progress[i]);
+                            tv.setBackgroundResource((R.drawable.style_points));
+                        }
+                        //закрашиваем прогресс серым цветом когнец
+                        //определяю правильные ответы и закрашиваю зеоеным
+                        for (int i = 0; i < count ; i++) {
+                            TextView tv = findViewById(progress[i]);
+                            tv.setBackgroundResource(R.drawable.style_points_green);
+                        }
+                    }
+//если отпустил палец конец
+
+                    if(count == 20){
+                        //ВЫХОД ИЗ УРОВНЯ
+                    }else{
+
+                        numLeft= random.nextInt(10);//генерация числоа от0 - 9
+                        img_Left.setImageResource(array.images1[numLeft]);
+                        img_Left.startAnimation(a);
+                        text_left.setText(array.text1[numLeft]);
+                        numRight = random.nextInt(10);
+                        //цикл с предусловие начло
+                        while (numLeft == numRight){ numRight = random.nextInt(10);}
+                        //цикл с предусловием конец
+                        img_right.setImageResource(array.images1[numRight]);
+                        img_right.startAnimation(a);
+                        text_right.setText(array.text1[numRight]);
+                        img_Left.setEnabled(true);//вкл обраьно левую картинку
+                    }
+                }
+
+                // условие касания картинки конец
+
+                return true;
+            }
+        });
+        // обработка нажатия на правую картинку конец
+    }
     //Системная кнопка назад начало
     @Override
     public void onBackPressed(){

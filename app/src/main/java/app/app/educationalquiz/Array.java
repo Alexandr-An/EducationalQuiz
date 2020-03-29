@@ -1,0 +1,34 @@
+package app.app.educationalquiz;
+
+public class Array {
+    //Массив для первого уровня начало
+    final int[] images1 = {
+            R.drawable.zero_number,
+            R.drawable.one_number,
+            R.drawable.two_number,
+            R.drawable.three_number,
+            R.drawable.four_number,
+            R.drawable.five_number,
+            R.drawable.six_number,
+            R.drawable.seven_number,
+            R.drawable.eight_number,
+            R.drawable.nine_number,
+
+    };
+
+ /*   final int[] power1 = {0,1,2,3,4,5,6,7,8,9,};*/
+
+    final int[] text1 = {
+            R.string.lvltext0,
+            R.string.lvltext1,
+            R.string.lvltext2,
+            R.string.lvltext3,
+            R.string.lvltext4,
+            R.string.lvltext5,
+            R.string.lvltext6,
+            R.string.lvltext7,
+            R.string.lvltext8,
+            R.string.lvltext9,
+    };
+    //Массив для первого уровня конец
+}
