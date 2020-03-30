@@ -37,7 +37,7 @@ public class Level2 extends AppCompatActivity {
 
         //создать переменную textlevels
         TextView text_levels = findViewById(R.id.textLevels);
-        text_levels.setText(R.string.level_1);
+        text_levels.setText(R.string.level_2);
 
         final ImageView img_Left = (ImageView) findViewById(R.id.img_left);
         img_Left.setClipToOutline(true);//скругление углов у левой картинки

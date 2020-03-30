@@ -38,7 +38,7 @@ public class Level3 extends AppCompatActivity {
 
         //создать переменную textlevels
         TextView text_levels = findViewById(R.id.textLevels);
-        text_levels.setText(R.string.level_1);
+        text_levels.setText(R.string.level_3);
 
         final ImageView img_Left = (ImageView) findViewById(R.id.img_left);
         img_Left.setClipToOutline(true);//скругление углов у левой картинки
@@ -55,6 +55,11 @@ public class Level3 extends AppCompatActivity {
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         //развернуть игру на весь экран начало
+
+        //установка фона диалогового окна начало
+        ImageView background = (ImageView)findViewById(R.id.background);
+        background.setImageResource(R.drawable.level3);
+        //установка фона диалогового окна конец
 
 
         //Вызов диалогового окна в начале первого уровня
@@ -198,16 +203,16 @@ textdescriptionEnd.setText(R.string.level2end);
         //полключаем анис=мацию конец
 
 
-        numLeft= random.nextInt(10);//генерация числоа от0 - 9
-         img_Left.setImageResource(array.images2[numLeft]);
-         text_left.setText(array.text2[numLeft]);
+        numLeft= random.nextInt(21);//генерация числоа от0 - 21
+         img_Left.setImageResource(array.images3[numLeft]);
+         text_left.setText(array.text3[numLeft]);
 
-         numRight = random.nextInt(10);
+         numRight = random.nextInt(21);
          //цикл с предусловие начло
-         while (numLeft == numRight){ numRight = random.nextInt(10);}
+         while (numLeft == numRight){ numRight = random.nextInt(21);}
          //цикл с предусловием конец
-          img_right.setImageResource(array.images2[numRight]);
-         text_right.setText(array.text2[numRight]);
+          img_right.setImageResource(array.images3[numRight]);
+         text_right.setText(array.text3[numRight]);
 
 
          // обработка нажатия на левую картинку начало
@@ -243,7 +248,7 @@ if (count > 0){
         count = 0;
     }
     else {
-        count = count -2;
+        count--;
     }
 }
     for (int i = 0; i < 19; i++) {
@@ -264,17 +269,17 @@ if (count > 0){
                         dialogEnd.show();
                     }else{
 
-                        numLeft= random.nextInt(10);//генерация числоа от0 - 9
-                        img_Left.setImageResource(array.images2[numLeft]);
+                        numLeft= random.nextInt(21);//генерация числоа от 21
+                        img_Left.setImageResource(array.images3[numLeft]);
                         img_Left.startAnimation(a);
-                        text_left.setText(array.text2[numLeft]);
-                        numRight = random.nextInt(10);
+                        text_left.setText(array.text3[numLeft]);
+                        numRight = random.nextInt(21);
                         //цикл с предусловие начло
-                        while (numLeft == numRight){ numRight = random.nextInt(10);}
+                        while (numLeft == numRight){ numRight = random.nextInt(21);}
                         //цикл с предусловием конец
-                        img_right.setImageResource(array.images2[numRight]);
+                        img_right.setImageResource(array.images3[numRight]);
                         img_right.startAnimation(a);
-                        text_right.setText(array.text2[numRight]);
+                        text_right.setText(array.text3[numRight]);
                         img_right.setEnabled(true);//вкл обраьно правую картинку
                     }
                 }
@@ -321,7 +326,7 @@ if (count > 0){
                                 count = 0;
                             }
                             else {
-                                count = count -2;
+                                count ++;
                             }
                         }
                         for (int i = 0; i < 19; i++) {
@@ -342,17 +347,17 @@ if (count > 0){
                         dialogEnd.show();
                     }else{
 
-                        numLeft= random.nextInt(10);//генерация числоа от0 - 9
-                        img_Left.setImageResource(array.images2[numLeft]);
+                        numLeft= random.nextInt(21);//генерация числоа от 21
+                        img_Left.setImageResource(array.images3[numLeft]);
                         img_Left.startAnimation(a);
-                        text_left.setText(array.text2[numLeft]);
-                        numRight = random.nextInt(10);
+                        text_left.setText(array.text3[numLeft]);
+                        numRight = random.nextInt(21);
                         //цикл с предусловие начло
-                        while (numLeft == numRight){ numRight = random.nextInt(10);}
+                        while (numLeft == numRight){ numRight = random.nextInt(21);}
                         //цикл с предусловием конец
-                        img_right.setImageResource(array.images2[numRight]);
+                        img_right.setImageResource(array.images3[numRight]);
                         img_right.startAnimation(a);
-                        text_right.setText(array.text2[numRight]);
+                        text_right.setText(array.text3[numRight]);
                         img_Left.setEnabled(true);//вкл обраьно левую картинку
                     }
                 }
