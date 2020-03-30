@@ -126,6 +126,11 @@ public class Level3 extends AppCompatActivity {
                 WindowManager.LayoutParams.MATCH_PARENT);
         dialogEnd.setCancelable(false);//окно нельзя закрытть кнопкой назад
 
+        //устанавливаем фон диалогового окна нчало
+        LinearLayout dialogfonEnd = (LinearLayout)dialogEnd.findViewById(R.id.dialog_fon);
+        dialogfonEnd.setBackgroundResource(R.drawable.previewbackground3);
+        //устанавливаем фон диалогового окна конец
+
         //интересный фак начало
 TextView textdescriptionEnd = (TextView)dialogEnd.findViewById(R.id.textdescriptionend);
 textdescriptionEnd.setText(R.string.level2end);
@@ -156,7 +161,7 @@ textdescriptionEnd.setText(R.string.level2end);
             @Override
             public void onClick(View v) {
                 try {
-                    Intent intent = new Intent(Level3.this, Level3.class);
+                    Intent intent = new Intent(Level3.this, Level4.class);
                     startActivity(intent);finish();
                 }catch (Exception e){}
                 dialogEnd.dismiss();// закрываем диалоговое окно/
