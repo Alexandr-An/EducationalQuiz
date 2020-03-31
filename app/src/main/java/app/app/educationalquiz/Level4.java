@@ -38,7 +38,7 @@ import java.util.Random;
 
          //создать переменную textlevels
          TextView text_levels = findViewById(R.id.textLevels);
-         text_levels.setText(R.string.level_3);
+         text_levels.setText(R.string.level_4);
 
          final ImageView img_Left = (ImageView) findViewById(R.id.img_left);
          img_Left.setClipToOutline(true);//скругление углов у левой картинки
@@ -56,10 +56,10 @@ import java.util.Random;
          w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
          //развернуть игру на весь экран начало
 
-         //установка фона диалогового окна начало
+         //установка фона начало
          ImageView background = (ImageView)findViewById(R.id.background);
-         background.setImageResource(R.drawable.level3);
-         //установка фона диалогового окна конец
+         background.setImageResource(R.drawable.level4);
+         //установка фона конец
 
 
          //Вызов диалогового окна в начале первого уровня
@@ -128,12 +128,12 @@ import java.util.Random;
 
          //устанавливаем фон диалогового окна нчало
          LinearLayout dialogfonEnd = (LinearLayout)dialogEnd.findViewById(R.id.dialog_fon);
-         dialogfonEnd.setBackgroundResource(R.drawable.previewbackground3);
+         dialogfonEnd.setBackgroundResource(R.drawable.previewbacground4);
          //устанавливаем фон диалогового окна конец
 
          //интересный фак начало
  TextView textdescriptionEnd = (TextView)dialogEnd.findViewById(R.id.textdescriptionend);
- textdescriptionEnd.setText(R.string.level2end);
+ textdescriptionEnd.setText(R.string.level4end);
          //интересный фак конец
          //кнопка закрытия диалогового окна начало
          TextView btnclose2 = (TextView) dialogEnd.findViewById(R.id.button_close);
@@ -161,7 +161,7 @@ import java.util.Random;
              @Override
              public void onClick(View v) {
                  try {
-                     Intent intent = new Intent(Level4.this, Level4.class);
+                     Intent intent = new Intent(Level4.this, GameLevels.class);
                      startActivity(intent);finish();
                  }catch (Exception e){}
                  dialogEnd.dismiss();// закрываем диалоговое окно/
@@ -208,16 +208,16 @@ import java.util.Random;
          //полключаем анис=мацию конец
 
 
-         numLeft= random.nextInt(21);//генерация числоа от0 - 21
-          img_Left.setImageResource(array.images3[numLeft]);
-          text_left.setText(array.text3[numLeft]);
+         numLeft= random.nextInt(20);//генерация числоа от0 - 20
+          img_Left.setImageResource(array.images4[numLeft]);
+          text_left.setText(array.text4[numLeft]);
 
-          numRight = random.nextInt(21);
+          numRight = random.nextInt(20);
           //цикл с предусловие начло
-          while (numLeft == numRight){ numRight = random.nextInt(21);}
+          while (array.strong[numLeft] == array.strong[numRight]){ numRight = random.nextInt(20);}
           //цикл с предусловием конец
-           img_right.setImageResource(array.images3[numRight]);
-          text_right.setText(array.text3[numRight]);
+           img_right.setImageResource(array.images4[numRight]);
+          text_right.setText(array.text4[numRight]);
 
 
           // обработка нажатия на левую картинку начало
@@ -228,13 +228,13 @@ import java.util.Random;
                  if(event.getAction()==MotionEvent.ACTION_DOWN){
                   //если конулся картинки начало
                      img_right.setEnabled(false);//блокировка правой картинки
-                     if (numLeft > numRight){
+                     if (array.strong[numLeft] > array.strong[numRight]){
                          img_Left.setImageResource(R.drawable.img_true);
                      }else{img_Left.setImageResource(R.drawable.img_false);}
                      //если коснулся картинки конец
                  }else if (event.getAction() == MotionEvent.ACTION_UP){
                      // если отпустил палец начало
- if (numLeft >numRight){
+ if (array.strong[numLeft]> array.strong[numRight]){
      if(count < 20){count++;}
      //закрашиваем прогресс серым цветом начало
      for (int i = 0; i < 20; i++) {
@@ -274,17 +274,17 @@ import java.util.Random;
                          dialogEnd.show();
                      }else{
 
-                         numLeft= random.nextInt(21);//генерация числоа от 21
-                         img_Left.setImageResource(array.images3[numLeft]);
-                         img_Left.startAnimation(a);
-                         text_left.setText(array.text3[numLeft]);
-                         numRight = random.nextInt(21);
+                         numLeft= random.nextInt(20);//генерация числоа от0 - 20
+                         img_Left.setImageResource(array.images4[numLeft]);
+                         text_left.setText(array.text4[numLeft]);
+
+                         numRight = random.nextInt(20);
                          //цикл с предусловие начло
-                         while (numLeft == numRight){ numRight = random.nextInt(21);}
+                         while (array.strong[numLeft] == array.strong[numRight]){ numRight = random.nextInt(20);}
                          //цикл с предусловием конец
-                         img_right.setImageResource(array.images3[numRight]);
-                         img_right.startAnimation(a);
-                         text_right.setText(array.text3[numRight]);
+                         img_right.setImageResource(array.images4[numRight]);
+                         text_right.setText(array.text4[numRight]);
+
                          img_right.setEnabled(true);//вкл обраьно правую картинку
                      }
                  }
@@ -306,13 +306,13 @@ import java.util.Random;
                  if(event.getAction()==MotionEvent.ACTION_DOWN){
                      //если конулся картинки начало
                      img_Left.setEnabled(false);//блокировка левой картинки
-                     if (numLeft < numRight){
+                     if (array.strong[numLeft] < array.strong[numRight]){
                          img_right.setImageResource(R.drawable.img_true);
                      }else{img_right.setImageResource(R.drawable.img_false);}
                      //если коснулся картинки конец
                  }else if (event.getAction() == MotionEvent.ACTION_UP){
                      // если отпустил палец начало
-                     if (numLeft < numRight){
+                     if (array.strong[numLeft] < array.strong[numRight]){
                          if(count < 20){count++;}
                          //закрашиваем прогресс серым цветом начало
                          for (int i = 0; i < 20; i++) {
@@ -331,7 +331,7 @@ import java.util.Random;
                                  count = 0;
                              }
                              else {
-                                 count ++;
+                                 count = count-1;
                              }
                          }
                          for (int i = 0; i < 19; i++) {
@@ -352,17 +352,17 @@ import java.util.Random;
                          dialogEnd.show();
                      }else{
 
-                         numLeft= random.nextInt(21);//генерация числоа от 21
-                         img_Left.setImageResource(array.images3[numLeft]);
-                         img_Left.startAnimation(a);
-                         text_left.setText(array.text3[numLeft]);
-                         numRight = random.nextInt(21);
+                         numLeft= random.nextInt(20);//генерация числоа от0 - 20
+                         img_Left.setImageResource(array.images4[numLeft]);
+                         text_left.setText(array.text4[numLeft]);
+
+                         numRight = random.nextInt(20);
                          //цикл с предусловие начло
-                         while (numLeft == numRight){ numRight = random.nextInt(21);}
+                         while (array.strong[numLeft] == array.strong[numRight]){ numRight = random.nextInt(20);}
                          //цикл с предусловием конец
-                         img_right.setImageResource(array.images3[numRight]);
-                         img_right.startAnimation(a);
-                         text_right.setText(array.text3[numRight]);
+                         img_right.setImageResource(array.images4[numRight]);
+                         text_right.setText(array.text4[numRight]);
+
                          img_Left.setEnabled(true);//вкл обраьно левую картинку
                      }
                  }

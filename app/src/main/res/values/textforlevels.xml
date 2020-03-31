@@ -43,4 +43,25 @@
     <string name="lvl3text19">Big Boss</string>
     <string name="lvl3text20">Big Boss</string>
     <string name="lvl3text21">Big Boss</string>
+
+    <string name="lvl4text1">Цитрусы</string>
+    <string name="lvl4text2">Скважина</string>
+    <string name="lvl4text3">Шоколад</string>
+    <string name="lvl4text4">Телефон</string>
+    <string name="lvl4text5">Дошик</string>
+    <string name="lvl4text6">Телефонная будтка</string>
+    <string name="lvl4text7">Салат</string>
+    <string name="lvl4text8">Цветок</string>
+    <string name="lvl4text9">Груша</string>
+    <string name="lvl4text10">Цветок</string>
+    <string name="lvl4text11">Клубника</string>
+    <string name="lvl4text12">Цветок</string>
+    <string name="lvl4text13">Ананас</string>
+    <string name="lvl4text14">Ручка</string>
+    <string name="lvl4text15">Земляника</string>
+    <string name="lvl4text16">Карандаши</string>
+    <string name="lvl4text17">Черника</string>
+    <string name="lvl4text18">Карандаши</string>
+    <string name="lvl4text19">Сладости</string>
+    <string name="lvl4text20">Карандаши</string>
 </resources>
