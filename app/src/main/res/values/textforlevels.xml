@@ -64,4 +64,26 @@
     <string name="lvl4text18">Карандаши</string>
     <string name="lvl4text19">Сладости</string>
     <string name="lvl4text20">Карандаши</string>
+
+
+    <string name="lvl5text1">Тигр</string>
+    <string name="lvl5text2">Кролик</string>
+    <string name="lvl5text3">Львица</string>
+    <string name="lvl5text4">Белка</string>
+    <string name="lvl5text5">Тигр</string>
+    <string name="lvl5text6">Белка</string>
+    <string name="lvl5text7">Крокодил</string>
+    <string name="lvl5text8">Белка</string>
+    <string name="lvl5text9">Гриф</string>
+    <string name="lvl5text10">Белка</string>
+    <string name="lvl5text11">Крокодил</string>
+    <string name="lvl5text12">Ёж</string>
+    <string name="lvl5text13">Львица</string>
+    <string name="lvl5text14">Ёж</string>
+    <string name="lvl5text15">Волк</string>
+    <string name="lvl5text16">Кролик</string>
+    <string name="lvl5text17">Волк</string>
+    <string name="lvl5text18">Кот</string>
+    <string name="lvl5text19">Волк</string>
+    <string name="lvl5text20">Кот</string>
 </resources>

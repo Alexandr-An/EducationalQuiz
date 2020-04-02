@@ -56,10 +56,10 @@ import java.util.Random;
          w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
          //развернуть игру на весь экран начало
 
-         //установка фона начало
+         //установка фона  окна начало
          ImageView background = (ImageView)findViewById(R.id.background);
          background.setImageResource(R.drawable.level4);
-         //установка фона конец
+         //установка фона  окна конец
 
 
          //Вызов диалогового окна в начале первого уровня
@@ -68,10 +68,12 @@ import java.util.Random;
          dialog.setContentView(R.layout.previewdialog);// путь к маекету диалогового окна
          dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));//прозрачныйыы фон диалогового окна
          dialog.setCancelable(false);//окно нельзя закрытть кнопкой назад
+
          //устанавливаем картинку в диалоговое окно начало
          ImageView previewimg = (ImageView)dialog.findViewById(R.id.previewimg);
          previewimg.setImageResource(R.drawable.previewimg4);
          //устанавливаем картинку в диалоговое окно конец
+
          //устанавливаем фон диалогового окна начло
          LinearLayout dialogfon= (LinearLayout)dialog.findViewById(R.id.dialog_fon);
          dialogfon.setBackgroundResource(R.drawable.previewbacground4);
@@ -133,7 +135,7 @@ import java.util.Random;
 
          //интересный фак начало
  TextView textdescriptionEnd = (TextView)dialogEnd.findViewById(R.id.textdescriptionend);
- textdescriptionEnd.setText(R.string.level4end);
+ textdescriptionEnd.setText(R.string.levelfourend);
          //интересный фак конец
          //кнопка закрытия диалогового окна начало
          TextView btnclose2 = (TextView) dialogEnd.findViewById(R.id.button_close);
@@ -208,13 +210,15 @@ import java.util.Random;
          //полключаем анис=мацию конец
 
 
-         numLeft= random.nextInt(20);//генерация числоа от0 - 20
+         numLeft= random.nextInt(20);//генерация числоа от0 - 21
           img_Left.setImageResource(array.images4[numLeft]);
           text_left.setText(array.text4[numLeft]);
 
           numRight = random.nextInt(20);
           //цикл с предусловие начло
-          while (array.strong[numLeft] == array.strong[numRight]){ numRight = random.nextInt(20);}
+          while (array.strong[numLeft] == array.strong[numRight]){
+              numRight = random.nextInt(20);
+          }
           //цикл с предусловием конец
            img_right.setImageResource(array.images4[numRight]);
           text_right.setText(array.text4[numRight]);
@@ -234,7 +238,7 @@ import java.util.Random;
                      //если коснулся картинки конец
                  }else if (event.getAction() == MotionEvent.ACTION_UP){
                      // если отпустил палец начало
- if (array.strong[numLeft]> array.strong[numRight]){
+ if (array.strong[numLeft] > array.strong[numRight]){
      if(count < 20){count++;}
      //закрашиваем прогресс серым цветом начало
      for (int i = 0; i < 20; i++) {
@@ -273,14 +277,15 @@ import java.util.Random;
                          //ВЫХОД ИЗ УРОВНЯ
                          dialogEnd.show();
                      }else{
-
-                         numLeft= random.nextInt(20);//генерация числоа от0 - 20
+                         numLeft= random.nextInt(20);//генерация числоа от0 - 21
                          img_Left.setImageResource(array.images4[numLeft]);
                          text_left.setText(array.text4[numLeft]);
 
                          numRight = random.nextInt(20);
                          //цикл с предусловие начло
-                         while (array.strong[numLeft] == array.strong[numRight]){ numRight = random.nextInt(20);}
+                         while (array.strong[numLeft] == array.strong[numRight]){
+                             numRight = random.nextInt(20);
+                         }
                          //цикл с предусловием конец
                          img_right.setImageResource(array.images4[numRight]);
                          text_right.setText(array.text4[numRight]);
@@ -331,7 +336,7 @@ import java.util.Random;
                                  count = 0;
                              }
                              else {
-                                 count = count-1;
+                                 count ++;
                              }
                          }
                          for (int i = 0; i < 19; i++) {
@@ -352,17 +357,18 @@ import java.util.Random;
                          dialogEnd.show();
                      }else{
 
-                         numLeft= random.nextInt(20);//генерация числоа от0 - 20
+                         numLeft= random.nextInt(20);//генерация числоа от0 - 21
                          img_Left.setImageResource(array.images4[numLeft]);
                          text_left.setText(array.text4[numLeft]);
 
                          numRight = random.nextInt(20);
                          //цикл с предусловие начло
-                         while (array.strong[numLeft] == array.strong[numRight]){ numRight = random.nextInt(20);}
+                         while (array.strong[numLeft] == array.strong[numRight]){
+                             numRight = random.nextInt(20);
+                         }
                          //цикл с предусловием конец
                          img_right.setImageResource(array.images4[numRight]);
                          text_right.setText(array.text4[numRight]);
-
                          img_Left.setEnabled(true);//вкл обраьно левую картинку
                      }
                  }

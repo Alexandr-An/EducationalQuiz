@@ -137,4 +137,41 @@ public class Array {
 
     final int[] strong = {1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,};
     //массив для 4 уровня конец
+
+
+    //массив для 5 уровня начало
+    final int[] images5 = {
+           R.drawable.predator1,
+            R.drawable.nonpredator1,
+            R.drawable.predator2,
+            R.drawable.nonpredator2,
+            R.drawable.predator3,
+            R.drawable.nonpredator3,
+            R.drawable.predator4,
+            R.drawable.nonpredator4,
+            R.drawable.predator5,
+            R.drawable.nonpredator5,
+            R.drawable.predator6,
+            R.drawable.nonpredator6,
+            R.drawable.predator7,
+            R.drawable.nonpredator7,
+            R.drawable.predator8,
+            R.drawable.nonpredator8,
+            R.drawable.predator9,
+            R.drawable.nonpredator9,
+            R.drawable.predator10,
+            R.drawable.nonpredator10,
+    };
+
+    final int[] text5 = {
+            R.string.lvl4text1, R.string.lvl4text2, R.string.lvl4text3, R.string.lvl4text4,
+            R.string.lvl4text5, R.string.lvl4text6, R.string.lvl4text7, R.string.lvl4text8, R.string.lvl4text9, R.string.lvl4text10,
+            R.string.lvl4text11, R.string.lvl4text12, R.string.lvl4text13, R.string.lvl4text14,
+            R.string.lvl4text15, R.string.lvl4text16, R.string.lvl4text17, R.string.lvl4text18, R.string.lvl4text19, R.string.lvl4text20,
+    };
+
+    final int[] strong5 = {1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,};
+    //массив для 4 уровня конец
+
+
 }
