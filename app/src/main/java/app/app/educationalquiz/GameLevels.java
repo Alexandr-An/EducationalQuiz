@@ -90,8 +90,8 @@ public class GameLevels extends AppCompatActivity {
         //кнопка для перехода на 4 уровень конец
 
         //кнопка для перехода на 5 уровень начало
-        /*TextView textView5 = (TextView)findViewById(R.id.textView5);
-        textView4.setOnClickListener(new View.OnClickListener() {
+        TextView textView5 = (TextView)findViewById(R.id.textView5);
+        textView5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
@@ -99,7 +99,7 @@ public class GameLevels extends AppCompatActivity {
                     startActivity(intent);finish();
                 }catch (Exception e){}
             }
-        });*/
+        });
         //кнопка для перехода на 5 уровень конец
     }
     //системная кнопка назад начало

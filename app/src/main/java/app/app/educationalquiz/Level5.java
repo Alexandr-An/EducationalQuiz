@@ -20,7 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Random;
 
- public class Level4 extends AppCompatActivity {
+ public class Level5 extends AppCompatActivity {
 
      Dialog dialog;
      Dialog dialogEnd;
@@ -38,7 +38,7 @@ import java.util.Random;
 
          //создать переменную textlevels
          TextView text_levels = findViewById(R.id.textLevels);
-         text_levels.setText(R.string.level_4);
+         text_levels.setText(R.string.level_5);
 
          final ImageView img_Left = (ImageView) findViewById(R.id.img_left);
          img_Left.setClipToOutline(true);//скругление углов у левой картинки
@@ -71,7 +71,7 @@ import java.util.Random;
 
          //устанавливаем картинку в диалоговое окно начало
          ImageView previewimg = (ImageView)dialog.findViewById(R.id.previewimg);
-         previewimg.setImageResource(R.drawable.previewimg4);
+         previewimg.setImageResource(R.drawable.previewbackground5);
          //устанавливаем картинку в диалоговое окно конец
 
          //устанавливаем фон диалогового окна начло
@@ -81,7 +81,7 @@ import java.util.Random;
 
          //установка описаниязадания начало
          TextView textdescription = (TextView)dialog.findViewById(R.id.textdescription);
-         textdescription.setText(R.string.levelfour);
+         textdescription.setText(R.string.levelfive);
          //установка описаниязадания конец
 
          //кнопка закрытия диалогового окна начало
@@ -92,7 +92,7 @@ import java.util.Random;
                  //обработка нажатия кнопки начало
                  try {
                      //вернуться назад к выбору уровня начало
-                     Intent intent = new Intent(Level4.this, GameLevels.class);//намерение для перехода
+                     Intent intent = new Intent(Level5.this, GameLevels.class);//намерение для перехода
                      startActivity(intent);//старт намерения
                      finish();//закрыть класс
                      //вернуться назад к выбору уровня конец
@@ -135,7 +135,7 @@ import java.util.Random;
 
          //интересный фак начало
  TextView textdescriptionEnd = (TextView)dialogEnd.findViewById(R.id.textdescriptionend);
- textdescriptionEnd.setText(R.string.levelfourend);
+ textdescriptionEnd.setText(R.string.levelfiveend);
          //интересный фак конец
          //кнопка закрытия диалогового окна начало
          TextView btnclose2 = (TextView) dialogEnd.findViewById(R.id.button_close);
@@ -145,7 +145,7 @@ import java.util.Random;
                  //обработка нажатия кнопки начало
                  try {
                      //вернуться назад к выбору уровня начало
-                     Intent intent = new Intent(Level4.this, GameLevels.class);//намерение для перехода
+                     Intent intent = new Intent(Level5.this, GameLevels.class);//намерение для перехода
                      startActivity(intent);//старт намерения
                      finish();//закрыть класс
                      //вернуться назад к выбору уровня конец
@@ -163,7 +163,7 @@ import java.util.Random;
              @Override
              public void onClick(View v) {
                  try {
-                     Intent intent = new Intent(Level4.this, Level5.class);
+                     Intent intent = new Intent(Level5.this, GameLevels.class);
                      startActivity(intent);finish();
                  }catch (Exception e){}
                  dialogEnd.dismiss();// закрываем диалоговое окно/
@@ -183,7 +183,7 @@ import java.util.Random;
                  //обработка кнопки назад начало
                  try {
                      //вернуться назад к выбору уровня начало
-                     Intent intent = new Intent(Level4.this, GameLevels.class);
+                     Intent intent = new Intent(Level5.this, GameLevels.class);
                      startActivity(intent);
                      finish();
                      //вернуться назад к выбору уровня конец
@@ -205,14 +205,14 @@ import java.util.Random;
 
 
          //полключаем анис=мацию начало
-         final Animation a = AnimationUtils.loadAnimation(Level4.this, R.anim.alpha);
+         final Animation a = AnimationUtils.loadAnimation(Level5.this, R.anim.alpha);
 
          //полключаем анис=мацию конец
 
 
          numLeft= random.nextInt(20);//генерация числоа от0 - 21
-          img_Left.setImageResource(array.images4[numLeft]);
-          text_left.setText(array.text4[numLeft]);
+          img_Left.setImageResource(array.images5[numLeft]);
+          text_left.setText(array.text5[numLeft]);
 
           numRight = random.nextInt(20);
           //цикл с предусловие начло
@@ -220,8 +220,8 @@ import java.util.Random;
               numRight = random.nextInt(20);
           }
           //цикл с предусловием конец
-           img_right.setImageResource(array.images4[numRight]);
-          text_right.setText(array.text4[numRight]);
+           img_right.setImageResource(array.images5[numRight]);
+          text_right.setText(array.text5[numRight]);
 
 
           // обработка нажатия на левую картинку начало
@@ -278,8 +278,8 @@ import java.util.Random;
                          dialogEnd.show();
                      }else{
                          numLeft= random.nextInt(20);//генерация числоа от0 - 21
-                         img_Left.setImageResource(array.images4[numLeft]);
-                         text_left.setText(array.text4[numLeft]);
+                         img_Left.setImageResource(array.images5[numLeft]);
+                         text_left.setText(array.text5[numLeft]);
 
                          numRight = random.nextInt(20);
                          //цикл с предусловие начло
@@ -287,8 +287,8 @@ import java.util.Random;
                              numRight = random.nextInt(20);
                          }
                          //цикл с предусловием конец
-                         img_right.setImageResource(array.images4[numRight]);
-                         text_right.setText(array.text4[numRight]);
+                         img_right.setImageResource(array.images5[numRight]);
+                         text_right.setText(array.text5[numRight]);
 
                          img_right.setEnabled(true);//вкл обраьно правую картинку
                      }
@@ -358,8 +358,8 @@ import java.util.Random;
                      }else{
 
                          numLeft= random.nextInt(20);//генерация числоа от0 - 21
-                         img_Left.setImageResource(array.images4[numLeft]);
-                         text_left.setText(array.text4[numLeft]);
+                         img_Left.setImageResource(array.images5[numLeft]);
+                         text_left.setText(array.text5[numLeft]);
 
                          numRight = random.nextInt(20);
                          //цикл с предусловие начло
@@ -367,8 +367,8 @@ import java.util.Random;
                              numRight = random.nextInt(20);
                          }
                          //цикл с предусловием конец
-                         img_right.setImageResource(array.images4[numRight]);
-                         text_right.setText(array.text4[numRight]);
+                         img_right.setImageResource(array.images5[numRight]);
+                         text_right.setText(array.text5[numRight]);
                          img_Left.setEnabled(true);//вкл обраьно левую картинку
                      }
                  }
@@ -386,7 +386,7 @@ import java.util.Random;
          //обработка кнопки назад начало
          try {
              //вернуться назад к выбору уровня начало
-             Intent intent = new Intent(Level4.this, GameLevels.class);
+             Intent intent = new Intent(Level5.this, GameLevels.class);
              startActivity(intent);finish();
              //вернуться назад к выбору уровня конец
          }catch (Exception e){}

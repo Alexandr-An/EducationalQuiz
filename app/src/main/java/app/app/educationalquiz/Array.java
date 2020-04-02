@@ -170,7 +170,7 @@ public class Array {
             R.string.lvl4text15, R.string.lvl4text16, R.string.lvl4text17, R.string.lvl4text18, R.string.lvl4text19, R.string.lvl4text20,
     };
 
-    final int[] strong5 = {1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,};
+
     //массив для 4 уровня конец
 
 
